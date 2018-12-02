@@ -10,6 +10,4 @@ class EnemyMedium{
     maxMoves = 10;
   }
   void move();
- private:
-  int currentPos, maxMoves;
 };
