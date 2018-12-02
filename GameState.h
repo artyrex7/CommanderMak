@@ -1,24 +1,27 @@
+#pragma once
+
 #include <unordered_map>
 #include <vector>
 #include <iostream>
 #include "Enemy.h"
+#include "Utils.h"
 
 using namespace std;
-
-enum difficultyEnum{
-  EASY = 1, MEDIUM = 2, HARD = 3
-};
+using namespace Utils;
 
 class GameState{
- public:
-  //unordered_map<int,vector<Enemy> >* getEnemyMap();
-  //void setEnemyMap(unordered_map<int,vector<Enemy> >*);
-  int getNumEnemies(){return numEnemies;}
-  int getRoundsRemaining(){return roundsRemaining;}
-  int getFieldWidth(){return fieldWidth;}
-  void resetState();
-  void decrementRounds(){roundsRemaining--;}
-  unordered_map<int,vector<Enemy> >* enemyMap;
- private:
-  int numEnemies, roundsRemaining, fieldWidth, enemyDifficulty;
+public:
+    int decrementRounds();
+    difficultyEnum getDifficulty();
+    int getNumEnemies();
+    int getRoundsRemaining();
+    int getFieldWidth();
+    void resetState();
+    unordered_map<int,vector<Enemy*> > enemyMap;
+
+private:
+    int numEnemies;
+    int roundsRemaining;
+    int fieldWidth;
+    difficultyEnum enemyDifficulty;
 };

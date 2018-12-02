@@ -1,13 +1,9 @@
-#include <ctime>
-#include <cstdlib>
+#pragma once
+
 #include "Enemy.h"
 
-class EnemyEasy{
- public:
-  EnemyEasy(){
-    srand(time(NULL));
-    currentPos = rand()%40;
-    maxMoves = 5;
-  }
-  void move();
+class EnemyEasy : public Enemy {
+public:
+    EnemyEasy();
+    int move(int max_fields);
 };

@@ -1,16 +1,16 @@
-#include "GameState.h"
-#include "GameClient.h"
+#pragma once
+
 #include <iostream>
 
 using namespace std;
 
 class Player{
- public:
-  Player();
-  void takeTurn();
- private:
-  int currentPos;
-  int maxMoves;
-  void move(int);
-  void shoot();
+    public:
+        Player(int max=0, int position=20, int width=40);
+        int takeTurn();
+    private:
+        void move(int);
+        int currentPos;
+        int fieldWidth;
+        int maxMoves;
 };
