@@ -10,6 +10,4 @@ class EnemyEasy{
     maxMoves = 5;
   }
   void move();
- private:
-  int currentPos, maxMoves;
 };
