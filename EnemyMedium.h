@@ -1,7 +1,14 @@
+#include <ctime>
+#include <cstdlib>
 #include "Enemy.h"
 
-class EnemyEasy{
+class EnemyMedium{
  public:
+  EnemyMedium(){
+    srand(time(NULL));
+    currentPos = rand()%40;
+    maxMoves = 10;
+  }
   void move();
  private:
   int currentPos, maxMoves;
