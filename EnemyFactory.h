@@ -11,8 +11,7 @@ using namespace std;
 
 class EnemyFactory{
     public:
-        unordered_map<int,vector<Enemy*> > generateEnemies(Utils::difficultyEnum diff, int numEnemies);
-  
+        unordered_map<int,vector<Enemy*> > generateEnemies(Utils::difficultyEnum diff, int numEnemies);  
     private:
         Enemy* getEnemy(Utils::difficultyEnum diff);
 };

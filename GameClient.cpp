@@ -1,7 +1,7 @@
-#include <unordered_map>
-#include <string>
 #include "GameClient.h"
 #include "Enemy.h"
+#include <unordered_map>
+#include <string>
 
 
 GameClient::GameClient(GameState* state_in){
@@ -12,7 +12,7 @@ GameClient::GameClient(GameState* state_in){
 
 void GameClient::startGame(){
   //constructs/sets enemyMap
-  unordered_map new_map = factory->generateEnemies(state->getDifficulty(), state->getNumEnemies());
+  unordered_map<int, vector<Enemy*> > new_map = factory->generateEnemies(state->getDifficulty(), state->getNumEnemies());
 
   //calls Player.takeTurn() until GameState.getRounds() == 0
   int rounds_remaining = state->getRoundsRemaining();
@@ -26,7 +26,7 @@ void GameClient::startGame(){
 
 void GameClient::updateEnemyMap(int player_pos){
   //updateEnemyPos(), shoot in row of Player.currentPos
-  unordered_map<int, vector<Enemy*>> current_map, new_map;
+  unordered_map<int, vector<Enemy*> > current_map, new_map;
   current_map = state->enemyMap;
   int field_width = state->getFieldWidth();
 
