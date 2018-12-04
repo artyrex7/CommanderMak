@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -std=c++11
 OBJ_DIR = obj
-OBJS = $(OBJ_DIR)/GameClient.o $(OBJ_DIR)/GameState.o $(OBJ_DIR)/Player.o $(OBJ_DIR)/Enemy.o $(OBJ_DIR)/EnemyEasy.o $(OBJ_DIR)/EnemyMedium.o $(OBJ_DIR)/EnemyHard.o
+OBJS = $(OBJ_DIR)/GameClient.o $(OBJ_DIR)/GameState.o $(OBJ_DIR)/Player.o $(OBJ_DIR)/EnemyFactory.o $(OBJ_DIR)/Enemy.o $(OBJ_DIR)/EnemyEasy.o $(OBJ_DIR)/EnemyMedium.o $(OBJ_DIR)/EnemyHard.o
 
 build: main.o
 
@@ -17,8 +17,11 @@ $(OBJ_DIR)/GameState.o: GameState.cpp GameState.h
 $(OBJ_DIR)/Player.o: Player.cpp Player.h
 	$(CC) $(CFLAGS) -c Player.cpp -o $@
 
+$(OBJ_DIR)/EnemyFactory.o: EnemyFactory.cpp EnemyFactory.h
+	$(CC) $(CFLAGS) -c EnemyFactory.cpp -o $@
+
 $(OBJ_DIR)/Enemy.o: Enemy.cpp Enemy.h
-	$(CC) $(CFLAGS) -c EnemyHard.cpp -o $@
+	$(CC) $(CFLAGS) -c Enemy.cpp -o $@
 
 $(OBJ_DIR)/EnemyEasy.o: EnemyEasy.cpp EnemyEasy.h
 	$(CC) $(CFLAGS) -c EnemyEasy.cpp -o $@
@@ -34,5 +37,3 @@ clean:
 
 # %.o: %.c %.h
 # 	gcc -c $< -o $@
-
-
