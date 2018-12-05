@@ -9,7 +9,6 @@ using namespace std;
 
 class GameClient{
 public:
-  //can we remove the GameState* param for GameClient constructor?
     GameClient(GameState* state_in);
     void startGame();
     void printGameState(int player_pos);

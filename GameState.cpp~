@@ -6,7 +6,7 @@ GameState::GameState(){
 
 void GameState::initSettings(){
   int diff = 0;
-  cout<<"Enter Number of Difficulty(1:ez,2:med,3:hard): ";
+  cout<<"Enter Difficulty: ";
   cin>>diff;
   switch(diff){
   case 1:

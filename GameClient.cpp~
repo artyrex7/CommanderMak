@@ -5,7 +5,7 @@
 
 
 GameClient::GameClient(GameState* state_in){
-  player = new Player(10);
+  player = new Player();
   factory = new EnemyFactory();
   state = state_in;
 }
