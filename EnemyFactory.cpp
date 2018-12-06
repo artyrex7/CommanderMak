@@ -14,10 +14,7 @@ Enemy* EnemyFactory::getEnemy(difficultyEnum diff, int fieldWidth){
 
 unordered_map<int,vector<Enemy*> > EnemyFactory::generateEnemies(difficultyEnum diff, int numEnemies, int fieldWidth){
     unordered_map<int, vector<Enemy*> > enemyMap;
-    for(int i=0; i<40; i++){
-        vector<Enemy*> temp;
-        enemyMap.emplace(i,temp);
-    }
+    fillMap(enemyMap,fieldWidth);
     
     while(numEnemies > 0){
         Enemy* e = getEnemy(diff, fieldWidth);

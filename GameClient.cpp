@@ -44,10 +44,7 @@ void GameClient::updateEnemyMap(int player_pos){
   current_map = state->enemyMap;
   int field_width = state->getFieldWidth();
   //initialize new blank map of vectors
-  for (int i = 0; i<field_width; i++) {
-    vector<Enemy*> new_vector;
-    new_map.insert({i, new_vector});
-  }
+  fillMap(new_map,field_width);
 
   //populate new map with updated positions of moved enemies.
   for (int i = 0; i<field_width; i++) {
