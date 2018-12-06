@@ -1,17 +1,18 @@
 #include "EnemyFactory.h"
+#include <iostream>
 
-Enemy* EnemyFactory::getEnemy(difficultyEnum diff){
+Enemy* EnemyFactory::getEnemy(difficultyEnum diff, int fieldWidth){
   switch(diff) {
   case difficultyEnum::EASY:
-    return new EnemyEasy();
+    return new EnemyEasy(fieldWidth);
   case difficultyEnum::MEDIUM:
-    return new EnemyMedium();
+    return new EnemyMedium(fieldWidth);
   case difficultyEnum::HARD:
-    return new EnemyHard();
+    return new EnemyHard(fieldWidth);
   }
 }
 
-unordered_map<int,vector<Enemy*> > EnemyFactory::generateEnemies(difficultyEnum diff, int numEnemies){
+unordered_map<int,vector<Enemy*> > EnemyFactory::generateEnemies(difficultyEnum diff, int numEnemies, int fieldWidth){
     unordered_map<int, vector<Enemy*> > enemyMap;
     for(int i=0; i<40; i++){
         vector<Enemy*> temp;
@@ -19,7 +20,8 @@ unordered_map<int,vector<Enemy*> > EnemyFactory::generateEnemies(difficultyEnum 
     }
     
     while(numEnemies > 0){
-        Enemy* e = getEnemy(diff);
+        Enemy* e = getEnemy(diff, fieldWidth);
+        std::cout << e->getCurrentPos() << "\n";
         enemyMap.at(e->getCurrentPos()).push_back(e);
         --numEnemies;
     }

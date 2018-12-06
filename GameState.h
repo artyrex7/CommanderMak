@@ -11,6 +11,7 @@ using namespace Utils;
 
 class GameState{
 public:
+    GameState(int enemies, int rounds, int width);
     int decrementRounds();
     difficultyEnum getDifficulty();
     int getNumEnemies();

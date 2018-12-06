@@ -1,5 +1,8 @@
 #include "GameState.h"
 
+GameState::GameState(int enemies, int rounds, int width) : numEnemies(enemies), roundsRemaining(rounds), fieldWidth(width), enemyDifficulty(difficultyEnum::MEDIUM) {
+}
+
 void GameState::resetState(){
 
 }

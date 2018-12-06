@@ -16,14 +16,13 @@ int Player::takeTurn(){
         than the left bound, just sticks to 0. Right rotation 
         works fine though.
         */
-        if (move_count < maxMoves) {
+        if (move_count <= maxMoves) {
             new_pos = (currentPos + move_count) % fieldWidth;
             valid_input = true;
         } else {
             cout << "ERROR. Invalid Input." << endl;
         }
     }
-
     move(new_pos);
     return currentPos;
 }

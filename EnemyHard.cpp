@@ -2,9 +2,9 @@
 #include <cstdlib>
 #include "EnemyHard.h"
 
-EnemyHard::EnemyHard() {
+EnemyHard::EnemyHard(int fieldWidth) {
     srand(time(NULL));
-    currentPos = rand()%40;
+    currentPos = rand()%fieldWidth;
     maxMoves = 20;
 }
 

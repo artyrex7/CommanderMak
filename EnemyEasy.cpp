@@ -2,10 +2,10 @@
 #include <cstdlib>
 #include "EnemyEasy.h"
 
-EnemyEasy::EnemyEasy() {
+EnemyEasy::EnemyEasy(int fieldWidth) {
   maxMoves = 5;
   srand(time(NULL));
-  currentPos = rand()%40;
+  currentPos = rand()%fieldWidth;
 }
 
 int EnemyEasy::move(int max_fields){

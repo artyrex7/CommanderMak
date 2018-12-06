@@ -2,17 +2,19 @@
 #include "Enemy.h"
 #include <unordered_map>
 #include <string>
-
+#include <sys/ioctl.h>
+#include <unistd.h>
 
 GameClient::GameClient(GameState* state_in){
-  player = new Player();
-  factory = new EnemyFactory();
   state = state_in;
+  player = new Player(5, state->getFieldWidth()/2, state->getFieldWidth());
+  factory = new EnemyFactory();
+  state->enemyMap = factory->generateEnemies(state->getDifficulty(), state->getNumEnemies(), state->getFieldWidth());
 }
 
 void GameClient::startGame(){
   //constructs/sets enemyMap
-  unordered_map<int, vector<Enemy*> > new_map = factory->generateEnemies(state->getDifficulty(), state->getNumEnemies());
+  unordered_map<int, vector<Enemy*> > new_map = factory->generateEnemies(state->getDifficulty(), state->getNumEnemies(), state->getFieldWidth());
 
   //calls Player.takeTurn() until GameState.getRounds() == 0
   int rounds_remaining = state->getRoundsRemaining();
@@ -29,7 +31,6 @@ void GameClient::updateEnemyMap(int player_pos){
   unordered_map<int, vector<Enemy*> > current_map, new_map;
   current_map = state->enemyMap;
   int field_width = state->getFieldWidth();
-
   //initialize new blank map of vectors
   for (int i = 0; i<field_width; i++) {
     vector<Enemy*> new_vector;
@@ -62,11 +63,14 @@ Top row is the number of enemies in a position
 Bottom row is position of the player.
 */
 void GameClient::printGameState(int player_pos){
+  // struct winsize terminal_size;
+	// ioctl(STDOUT_FILENO,TIOCGWINSZ, &terminal_size);
+
   int field_width = state->getFieldWidth();
   string output_str_line_1 = "";
 
   for (int i=0; i<field_width; i++) {
-    output_str_line_1 += ('0' + state->enemyMap.at(i).size());
+    output_str_line_1 += to_string(state->enemyMap.at(i).size());
     if (i + 1 != field_width) { //prevent | at end
       output_str_line_1 += " | ";
     }

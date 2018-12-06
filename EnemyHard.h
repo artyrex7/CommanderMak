@@ -4,6 +4,6 @@
 
 class EnemyHard : public Enemy {
 public:
-    EnemyHard();
+    EnemyHard(int fieldWidth);
     int move(int max_fields);
 };
