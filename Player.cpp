@@ -8,7 +8,7 @@ int Player::takeTurn(){
     int new_pos = 0;
 
     while (!valid_input) {
-        cout << "How much would you like to move? Positive for right, negative for left (Max: " << maxMoves << "): ";
+        cout << "Move (-" << maxMoves << " -> " << maxMoves << "): ";
         cin >> move_count;
 
         /*
@@ -24,6 +24,10 @@ int Player::takeTurn(){
         }
     }
     move(new_pos);
+    return currentPos;
+}
+
+int Player::getPlayerPos() {
     return currentPos;
 }
 

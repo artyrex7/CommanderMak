@@ -21,7 +21,6 @@ unordered_map<int,vector<Enemy*> > EnemyFactory::generateEnemies(difficultyEnum 
     
     while(numEnemies > 0){
         Enemy* e = getEnemy(diff, fieldWidth);
-        std::cout << e->getCurrentPos() << "\n";
         enemyMap.at(e->getCurrentPos()).push_back(e);
         --numEnemies;
     }
