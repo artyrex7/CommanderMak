@@ -26,3 +26,7 @@ int GameState::decrementRounds() {
 int GameState::getNumEnemies() {
     return numEnemies;
 }
+
+void GameState::killEnemies(int numKilled) {
+    numEnemies -= numKilled;
+}

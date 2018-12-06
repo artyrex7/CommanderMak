@@ -18,6 +18,7 @@ public:
     int getRoundsRemaining();
     int getFieldWidth();
     void resetState();
+    void killEnemies(int numKilled);
     unordered_map<int,vector<Enemy*> > enemyMap;
 
 private:
