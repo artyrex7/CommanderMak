@@ -2,14 +2,9 @@
 #include "GameClient.h"
 #include <iostream>
 
-
 using namespace std;
 
 int main() {
-	GameState state(20, 5, 40);
-	GameClient client(&state);
-
-	client.startGame();
-    
+    cout << "hey!";
     return 0;
 }

@@ -7,11 +7,11 @@
 #include "Utils.h"
 
 using namespace std;
-using namespace Utils;
+//using namespace Utils;
 
 class GameState{
 public:
-    GameState(int enemies, int rounds, int width);
+  GameState();
     int decrementRounds();
     difficultyEnum getDifficulty();
     int getNumEnemies();
